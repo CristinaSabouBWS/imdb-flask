@@ -3,7 +3,7 @@ import json
 import os
 import ipdb
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="./media")
 
 
 # def validate_input(number):
@@ -24,10 +24,14 @@ def movie_page():
     count = -1
     for line in fileData:
         count += 1
+        imaages = line["images"]
         images_urls = line["image_urls"]
-        if len(images_urls) > 0:
+        if len(imaages) > 0:
+            first_item_images = imaages[0]
+            image_url = "media/images_file/" + first_item_images["path"]
+            line["images"] = image_url
             first_item_image_url = images_urls[0]
             line["image_urls"] = first_item_image_url
             fileData[count] = line
 
-    return render_template("index.html", fileData=fileData)
+    return render_template("templates/index.html", fileData=fileData)

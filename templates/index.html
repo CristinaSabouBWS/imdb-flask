@@ -11,7 +11,7 @@
     {% for item in fileData %}
         <li>
             <a href="{{ item['url'] }}">{{ item["title"] }}</a>
-            <img src="{{ item['images'] }}" alt="{{ item['title'] }}">
+            <img src="{{ item['image_urls'] }}" alt="{{ item['title'] }}">
 
         </li>
     {% endfor %}

@@ -24,11 +24,10 @@ def movie_page():
     count = -1
     for line in fileData:
         count += 1
-        imaages = line["images"]
-        if len(imaages) > 0:
-            first_item_images = imaages[0]
-            image_url = os.path.join(SITE_ROOT, "media/images_file", first_item_images["path"])
-            line["images"] = image_url
+        images_urls = line["image_urls"]
+        if len(images_urls) > 0:
+            first_item_image_url = images_urls[0]
+            line["image_urls"] = first_item_image_url
             fileData[count] = line
 
     return render_template("index.html", fileData=fileData)

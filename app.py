@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import json
 import os
+import ipdb
 
 app = Flask(__name__)
 
@@ -20,10 +21,14 @@ def movie_page():
             movieDict = json.loads(jsonObj)
             fileData.append(movieDict)
     f.close()
+    count = -1
+    for line in fileData:
+        count += 1
+        imaages = line["images"]
+        if len(imaages) > 0:
+            first_item_images = imaages[0]
+            image_url = os.path.join(SITE_ROOT, "media/images_file", first_item_images["path"])
+            line["images"] = image_url
+            fileData[count] = line
 
-    line = fileData[0]
-    imaages = line["images"]
-    first_item_images = imaages[0]
-    image_url = os.path.join(SITE_ROOT, "media/images_file", first_item_images["path"])
-    print(image_url)
     return render_template("index.html", fileData=fileData)

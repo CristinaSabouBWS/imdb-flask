@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,7 @@
     {% for item in fileData %}
         <li>
             <a href="{{ item['url'] }}">{{ item["title"] }}</a>
-            
-            <!-- <img src="{{ image_url }}" alt="{{ item['title'] }}"> -->
+            <img src="{{ item['images'] }}" alt="{{ item['title'] }}">
 
         </li>
     {% endfor %}

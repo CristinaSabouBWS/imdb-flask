@@ -3,7 +3,7 @@ import json
 import os
 import ipdb
 
-app = Flask(__name__, template_folder="./media")
+app = Flask(__name__, template_folder="static")
 
 
 # def validate_input(number):
@@ -15,7 +15,7 @@ def movie_page():
     fileData = 0
     fileData = []
     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-    json_url = os.path.join(SITE_ROOT, "media", "imdb_movie.json")
+    json_url = os.path.join(SITE_ROOT, "static", "imdb_movie.json")
     with open(json_url) as f:
         for jsonObj in f:
             movieDict = json.loads(jsonObj)

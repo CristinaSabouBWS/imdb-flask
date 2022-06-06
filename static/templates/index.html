@@ -12,7 +12,7 @@
         <li>
             <a href="{{ item['url'] }}">{{ item["title"] }}</a>
             <br>
-            <img src="{{ item['images'] }}" alt="{{ item['title'] }}">
+            <img src="{{ url_for('static', filename=item['images']) }}" alt="{{ item['title'] }}">
 
 
         </li>

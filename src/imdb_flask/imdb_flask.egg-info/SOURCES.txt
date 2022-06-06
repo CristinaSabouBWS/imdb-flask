@@ -1,0 +1,7 @@
+setup.py
+src/imdb_flask.egg-info/PKG-INFO
+src/imdb_flask.egg-info/SOURCES.txt
+src/imdb_flask.egg-info/dependency_links.txt
+src/imdb_flask.egg-info/top_level.txt
+src/movies/__init__.py
+src/movies/main.py
